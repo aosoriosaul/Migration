@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations name="KVM-obtiene-credenciales" mapIdentifier="seguridad-post">
+    <DisplayName>KVM-obtiene-credenciales</DisplayName>
+    <Properties/>
+    <Get assignTo="private.basic">
+        <Key>
+            <Parameter>basic-credentials</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

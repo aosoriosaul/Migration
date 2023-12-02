@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-FixBrEncoding" version="SHA-512:4585b70976b660ff7571ed482d00afa5056bed67a0efcc7a63cc708efb2eae6f0bc9adf256bf2a7549a0c43754b5f511647553749a69e3b60e011e285caa559e"/>
+        <VersionInfo resourceName="FC-security-system" version="SHA-512:2c2366222dac7559e3f5fde595d8ddecf2431f9f3dbc346729e972107dc4a7ca32e388b567891643b1745a9e94f30ab37a32e63e17f22c3a09cc25db06546f37"/>
+        <VersionInfo resourceName="SA-contraataque" version="SHA-512:2f086508f750753b2ae0677aba34b8c53596f7b7082d0bd0251d3ab6f722e5b2620db0fcde4ac3d12bce7878bedf1c305d7b40c2cd502c65e18bc1cc8f55cdfc"/>
+        <VersionInfo resourceName="VAK-SEGURIDAD-API-KEY" version="SHA-512:2f79b6cc806eb23652225bd09d67576f08e4fcbc8899e9a40fe89f4e7371bca1879c5f124d1184005cad95a8f730bb0f2c10e4a5c04b3b93a6a2ce24d6c5d864"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:eee7a26c52ef6f272276de062a9009087f67a313ffa5ad14d9474a29f5be80143bcd16eaf0299e6f19eef36533c93ee699d9c786522f7f5adad8e6c20f4f8ac0"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="openapi://association.json" version="SHA-512:7389c06abdafff3ff6ec282f40231b407472b358f500faabe0eee525cff02fe68e77231632d2cb5d937aafdccc18f6c72b377f2db9ac6f61c80772e794049ec3"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:0b93baad87bb0103036cdd5d4126138894473e7df206dd6631c39de0a84c51fe8507148f5491fff550ba33e1cca3adf43fbb2b7a61643bdf57307e2f1f82867e"/>
+    </TargetEndpoints>
+</Manifest>

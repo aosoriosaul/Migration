@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SharedFlowBundle revision="1" name="sf-post-seguridad-global">
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1687384523292</CreatedAt>
+    <CreatedBy>aosoriosaul@hotmail.com</CreatedBy>
+    <Description>aqui se tienen las politicas de seguridad</Description>
+    <DisplayName>sf-post-seguridad-global</DisplayName>
+    <LastModifiedAt>1687385242635</LastModifiedAt>
+    <LastModifiedBy>aosoriosaul@hotmail.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:807d7e6ff2747ebec994840bd5be0bd39065bcd0e51a02ebc22765845e320238f9babde0a90383caf07aea2efe2544537e2f994e88ba3a424cfd05353836f3e2:us-east-1</ManifestVersion>
+    <Policies>
+        <Policy>AM-cabeceros</Policy>
+        <Policy>EV-obtienetoken</Policy>
+        <Policy>KVM-obtiene-credenciales</Policy>
+        <Policy>OA-SEGURIDAD</Policy>
+        <Policy>SC-envia-credenciales</Policy>
+    </Policies>
+    <Resources/>
+    <Spec></Spec>
+    <subType>SharedFlow</subType>
+    <SharedFlows>
+        <SharedFlow>default</SharedFlow>
+    </SharedFlows>
+</SharedFlowBundle>

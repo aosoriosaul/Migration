@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-cabeceros">
+    <DisplayName>AM-cabeceros</DisplayName>
+    <Properties/>
+    <Set>
+        <Verb>GET</Verb>
+        <Headers>
+            <Header name="Authorization">Bearer {apigee.token}</Header>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Payload contentType="application/json" variablePrefix="#" variableSuffix="%">
+            {
+                "Token":"#apigee.token%"
+            }
+        </Payload>
+        <QueryParams/>
+        <FormParams/>
+        <!-- <Verb>GET</Verb> -->
+        <Path/>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>
