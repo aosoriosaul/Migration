@@ -1,0 +1,283 @@
+<?xml version="1.0" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.fandom.apigee</groupId>
+    <artifactId>parent-pom</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <name>Maven Plugin Repository</name>
+            <url>https://repo1.maven.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <repositories>
+        <!-- Google bucket storage for our private maven repository -->
+        <repository>
+            <id>gcp-bucket-snapshot</id>
+            <url>gs://player1-platform-maven/snapshot</url>
+        </repository>
+        <repository>
+            <id>gcp-bucket-release</id>
+            <url>gs://player1-platform-maven/release</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <type>apiproxy</type>
+        <prefix></prefix>
+    </properties>
+
+    <build>
+        <extensions>
+            <!-- Google bucket storage support for our private maven repository -->
+            <extension>
+                <groupId>com.gkatzioura.maven.cloud</groupId>
+                <artifactId>google-storage-wagon</artifactId>
+                <version>1.7</version>
+            </extension>
+        </extensions>
+
+        <plugins>
+            <plugin>
+                <groupId>com.apigee.edge.config</groupId>
+                <artifactId>apigee-config-maven-plugin</artifactId>
+                <version>2.4.4</version>
+            </plugin>
+            <plugin>
+                <!-- Clear local repository to ensure latest versions -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.2</version>
+                <executions>
+                    <execution>
+                        <id>purge-local-dependencies</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>purge-local-repository</goal>
+                        </goals>
+                        <configuration>
+                            <resolutionFuzziness>groupId</resolutionFuzziness>
+                            <manualIncludes>
+                                <manualInclude>org.fandom.apigee.hostedtarget</manualInclude>
+                                <manualInclude>org.fandom.apigee.sharedflow</manualInclude>
+                            </manualIncludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        <!-- Support for namespaced deployments -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>setup-dynamic-properties</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <exportAntProperties>true</exportAntProperties>
+                            <target>
+                                <condition property="basepath_prefix" value="/${prefix}" else="">
+                                    <not>
+                                        <equals arg1="${prefix}" arg2="" trim="true" />
+                                    </not>
+                                </condition>
+                                <condition property="name_prefix" value="${prefix}-" else="">
+                                    <not>
+                                        <equals arg1="${prefix}" arg2="" trim="true" />
+                                    </not>
+                                </condition>
+                                <echo message="prefix: ${prefix}" />
+                                <echo message="basepath_prefix: ${basepath_prefix}" />
+                                <echo message="name_prefix: ${name_prefix}" />
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <!-- Copies source code to target directory -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <overwrite>true</overwrite>
+                            <encoding>utf8</encoding>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <useDefaultDelimiters>false</useDefaultDelimiters>
+                            <delimiters>
+                                <delimiter>@</delimiter>
+                            </delimiters>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}</directory>
+                                    <includes>
+                                        <include>apiproxy/**</include>
+                                        <include>sharedflowbundle/**</include>
+                                        <include>resources/**</include>
+                                    </includes>
+                                    <excludes>
+                                        <exclude>**/node_modules/**</exclude>
+                                        <exclude>**/generated/**</exclude>
+                                    </excludes>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <!-- Deploys apigee code -->
+                <groupId>io.apigee.build-tools.enterprise4g</groupId>
+                <artifactId>apigee-edge-maven-plugin</artifactId>
+                <version>2.4.0</version>
+                <executions>
+                    <execution>
+                        <id>configure-bundle-step</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>configure</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>deploy-bundle</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>internal</id>
+            <properties>
+                <org>player1-backend-nonprod</org>
+                <env>internal</env>
+                <apigee.profile>internal</apigee.profile>
+                <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
+                <apigee.apiversion>v1</apigee.apiversion>
+                <apigee.org>${org}</apigee.org>
+                <apigee.env>${env}</apigee.env>
+                <apigee.authtype>oauth</apigee.authtype> <!-- only option -->
+                <apigee.bearer>${bearer}</apigee.bearer> <!-- this takes precedence over service account file -->
+                <apigee.options>override</apigee.options> <!-- override is default. Other options are async|clean-->
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <org>fandom-nonprod</org>
+                <env>dev</env>
+                <apigee.apitype>${type}</apigee.apitype>
+                <apigee.profile>dev</apigee.profile>
+                <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
+                <apigee.apiversion>v1</apigee.apiversion>
+                <apigee.org>${org}</apigee.org>
+                <apigee.env>${env}</apigee.env>
+                <apigee.username>${username}</apigee.username>
+                <apigee.password>${password}</apigee.password>
+                <apigee.tokenurl>https://login.apigee.com/oauth/token</apigee.tokenurl>
+                <apigee.authtype>oauth</apigee.authtype>
+                <apigee.config.options>sync</apigee.config.options>
+                <apigee.config.dir>${project.build.directory}/resources/edge</apigee.config.dir>
+                <apigee.options>override</apigee.options>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <org>fandom-nonprod</org>
+                <env>test</env>
+                <apigee.apitype>${type}</apigee.apitype>
+                <apigee.profile>test</apigee.profile>
+                <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
+                <apigee.apiversion>v1</apigee.apiversion>
+                <apigee.org>${org}</apigee.org>
+                <apigee.env>${env}</apigee.env>
+                <apigee.username>${username}</apigee.username>
+                <apigee.password>${password}</apigee.password>
+                <apigee.tokenurl>https://login.apigee.com/oauth/token</apigee.tokenurl>
+                <apigee.authtype>oauth</apigee.authtype>
+                <apigee.config.options>sync</apigee.config.options>
+                <apigee.config.dir>${project.build.directory}/resources/edge</apigee.config.dir>
+                <apigee.options>override</apigee.options>
+            </properties>
+        </profile>
+        <profile>
+            <id>qa</id>
+            <properties>
+                <org>fandom-nonprod</org>
+                <env>qa</env>
+                <apigee.apitype>${type}</apigee.apitype>
+                <apigee.profile>qa</apigee.profile>
+                <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
+                <apigee.apiversion>v1</apigee.apiversion>
+                <apigee.org>${org}</apigee.org>
+                <apigee.env>${env}</apigee.env>
+                <apigee.username>${username}</apigee.username>
+                <apigee.password>${password}</apigee.password>
+                <apigee.tokenurl>https://login.apigee.com/oauth/token</apigee.tokenurl>
+                <apigee.authtype>oauth</apigee.authtype>
+                <apigee.config.options>sync</apigee.config.options>
+                <apigee.config.dir>${project.build.directory}/resources/edge</apigee.config.dir>
+                <apigee.options>override</apigee.options>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <org>fandom</org>
+                <env>prod</env>
+                <apigee.apitype>${type}</apigee.apitype>
+                <apigee.profile>prod</apigee.profile>
+                <apigee.hosturl>https://api.enterprise.apigee.com</apigee.hosturl>
+                <apigee.apiversion>v1</apigee.apiversion>
+                <apigee.org>${org}</apigee.org>
+                <apigee.env>${env}</apigee.env>
+                <apigee.username>${username}</apigee.username>
+                <apigee.password>${password}</apigee.password>
+                <apigee.tokenurl>https://login.apigee.com/oauth/token</apigee.tokenurl>
+                <apigee.authtype>oauth</apigee.authtype>
+                <apigee.config.options>sync</apigee.config.options>
+                <apigee.config.dir>${project.build.directory}/resources/edge</apigee.config.dir>
+                <apigee.options>override</apigee.options>
+            </properties>
+        </profile>
+    </profiles>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
