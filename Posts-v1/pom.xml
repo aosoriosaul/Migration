@@ -52,6 +52,8 @@
                 <apigee.env>${env}</apigee.env>
                 <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
                 <apigee.apiversion>v1</apigee.apiversion>
+                <apigee.apitype>sharedflow</apigee.apitype>
+                <apigee.apitype>apiproxy</apigee.apitype>
                 <apigee.org>${org}</apigee.org>
                 <apigee.options>override</apigee.options> 
                 <apigee.bearer>${bearer}</apigee.bearer>
@@ -89,8 +91,8 @@
                                     <directory>${project.root.dir}</directory>
                                     <filtering>true</filtering>
                                     <includes>
-                                        <include>apiproxy/**</include>
                                         <include>sharedflowbundle/**</include>
+                                        <include>apiproxy/**</include>
                                     </includes>
                                 </resource>
                             </resources>
