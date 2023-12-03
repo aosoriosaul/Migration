@@ -20,9 +20,8 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
-
-    <repositories>
-        <!-- Google bucket storage for our private maven repository -->
+    <!-- Google bucket storage for our private maven repository -->
+    <!-- <repositories>
         <repository>
             <id>gcp-bucket-snapshot</id>
             <url>gs://player1-platform-maven/snapshot</url>
@@ -31,7 +30,7 @@
             <id>gcp-bucket-release</id>
             <url>gs://player1-platform-maven/release</url>
         </repository>
-    </repositories>
+    </repositories> -->
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

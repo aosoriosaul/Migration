@@ -10,7 +10,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.fandom.apigee.proxy</groupId>
-    <artifactId>games-xapi-v1</artifactId>
+    <artifactId>posts-v1</artifactId>
     <version>1.0</version>
     <name>${name_prefix}games-xapi-v1</name>
     <packaging>pom</packaging>
