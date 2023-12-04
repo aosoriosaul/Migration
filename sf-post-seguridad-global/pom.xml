@@ -52,6 +52,7 @@
                 <apigee.env>${env}</apigee.env>
                 <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
                 <apigee.apiversion>v1</apigee.apiversion>
+                <apigee.apitype>sharedflow</apigee.apitype>
                 <apigee.org>${org}</apigee.org>
                 <apigee.options>override</apigee.options> 
                 <apigee.bearer>${bearer}</apigee.bearer>
