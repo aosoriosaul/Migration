@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout continueOnError="false" enabled="true" name="SC-envia-credenciales">
+    <DisplayName>SC-envia-credenciales</DisplayName>
+    <Properties/>
+    <Request variable="message">
+        <Set>
+            <Verb>POST</Verb>
+            <Headers>
+                <Header name="Authorization">{private.basic}</Header>
+            </Headers>
+            <FormParams>
+                <FormParam name="grant_type">client_credentials</FormParam>
+            </FormParams>
+        </Set>
+    </Request>
+    <Response>tokenResponse</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://aosoriosaul-eval-test.apigee.net/post-seguridad-global/token</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

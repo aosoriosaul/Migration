@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-cabeceros" version="SHA-512:030163b4cbfff9880bab817110d5d86a21eedcf5641d37eed1b5c943c94bd4e31d20c13a1296d531ffffe82ebfdd1b0fd94a729e9be4b7c3cc0a7b095e258baa"/>
+        <VersionInfo resourceName="EV-obtienetoken" version="SHA-512:f0b0329dc953bfd60f9ca04d1c1a7a05d117f4e46644e4cb50996f2c8eeee1b7c5339aead270a4eac215063411d3a29f7475321622653b2a2a3fa437c6598ec2"/>
+        <VersionInfo resourceName="KVM-obtiene-credenciales" version="SHA-512:3c016364b2967aa973ffa4c48bc8dc1e6a44285e19e32dd7d801c73c137f2a2035230bba284d2f8a35d3058ad4a75d9b42bb197c55caf8bc92f5dac560b296cb"/>
+        <VersionInfo resourceName="OA-SEGURIDAD" version="SHA-512:494d1a65087a88d780e2fdcf5ab83b2f344715b0c019a9681531401f0799184b724e0467804146961a4a0ea227e45c08cb3591d378befe28bf116cb79b770866"/>
+        <VersionInfo resourceName="SC-envia-credenciales" version="SHA-512:f64d5eb7d051a4a287a6edea621bc7134bb8ae809a85a380e137c8adc121cf8ad6eea903755dabe52658203685f122b796835abf8e6d777711f60208958162f3"/>
+    </Policies>
+    <ProxyEndpoints/>
+    <Resources/>
+    <SharedFlows>
+        <VersionInfo resourceName="default" version="SHA-512:e0ba5f8648237a2d7e25ddefca08d50549b992b8084741c32c1cbb89677de5124168ef8fca90d70ba03485aa1a17e6ec29f3de0a52f32eab0f29d5c00cf7fb93"/>
+    </SharedFlows>
+    <TargetEndpoints/>
+</Manifest>

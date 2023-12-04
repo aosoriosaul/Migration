@@ -16,9 +16,9 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>apigee</groupId>
-    <artifactId>sf-post-seguridad-global</artifactId>
+    <artifactId>sf-global-security</artifactId>
     <version>v1</version>
-    <name>sf-post-seguridad-global</name>
+    <name>sf-global-security</name>
     <packaging>pom</packaging>
     <pluginRepositories>
         <pluginRepository>
