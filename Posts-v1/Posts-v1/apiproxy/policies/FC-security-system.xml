@@ -3,5 +3,5 @@
     <DisplayName>FC-security-system</DisplayName>
     <FaultRules/>
     <Properties/>
-    <SharedFlowBundle>sf-post-seguridad-global</SharedFlowBundle>
+    <SharedFlowBundle>sf-global-security</SharedFlowBundle>
 </FlowCallout>
