@@ -3,10 +3,19 @@
     <PreFlow name="PreFlow">
         <Request>
             <Step>
-                <Name>FC-security-system</Name>
+                <Name>KVM-obtiene-credenciales</Name>
             </Step>
             <Step>
-                <Name>AM-FixBrEncoding</Name>
+                <Name>SC-envia-credenciales</Name>
+            </Step>
+            <Step>
+                <Name>EV-obtienetoken</Name>
+            </Step>
+            <Step>
+                <Name>AM-cabeceros</Name>
+            </Step>
+            <Step>
+                <Name>OA-SEGURIDAD</Name>
             </Step>
         </Request>
         <Response/>
@@ -14,11 +23,7 @@
     <Flows>
         <Flow name="get /post">
             <Description>Returns a list of users.</Description>
-            <Request>
-                <Step>
-                    <Name>SA-contraataque</Name>
-                </Step>
-            </Request>
+            <Request/>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/post") and (request.verb = "GET")</Condition>
         </Flow>

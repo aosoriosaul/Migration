@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="6" name="API-posts-v1">
+<APIProxy revision="5" name="API-posts-v1">
     <Basepaths>/api-posts/v1</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1686697369062</CreatedAt>
     <CreatedBy>aosoriosaul@hotmail.com</CreatedBy>
     <Description>API en el cual se obtienen imagenes</Description>
     <DisplayName>API-posts-v1</DisplayName>
-    <LastModifiedAt>1687472605627</LastModifiedAt>
+    <LastModifiedAt>1687384363957</LastModifiedAt>
     <LastModifiedBy>aosoriosaul@hotmail.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:de78ac097f853284612bf7ff50574a05dd07a536aed5f11f31d21f6e57eede52a417b47651b94c77e7469087c5e9f1dee15b3487dd5d8add9dc3f325073208f6:us-east-1</ManifestVersion>
+    <ManifestVersion>SHA-512:c2749f64644b138f7ecf15ae7503cd31414e86c2fd876c2c75be360144935327a6f8bcf89fa23d062d9a010bac043fc3adc24772f05993397d37013faab68ff4:us-east-1</ManifestVersion>
     <Policies>
-        <Policy>AM-FixBrEncoding</Policy>
-        <Policy>FC-security-system</Policy>
-        <Policy>SA-contraataque</Policy>
+        <Policy>AM-CredencialesHeader</Policy>
+        <Policy>AM-cabeceros</Policy>
+        <Policy>AM-envia-credenciales</Policy>
+        <Policy>EV-obtienetoken</Policy>
+        <Policy>KVM-obtiene-credenciales</Policy>
+        <Policy>OA-SEGURIDAD</Policy>
+        <Policy>SC-credenciales-post</Policy>
+        <Policy>SC-envia-credenciales</Policy>
         <Policy>VAK-SEGURIDAD-API-KEY</Policy>
     </Policies>
     <ProxyEndpoints>

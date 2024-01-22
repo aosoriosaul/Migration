@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-CredencialesHeader">
+    <DisplayName>AM-CredencialesHeader</DisplayName>
+    <Properties/>
+    <set>
+        <Verb>POST</Verb>
+        <Headers>
+            <Header name="Authorization">{basic}</Header>
+        </Headers>
+        <FormParams>
+            <FormParam name="grant_type">client_credentials</FormParam>
+        </FormParams>
+    </set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

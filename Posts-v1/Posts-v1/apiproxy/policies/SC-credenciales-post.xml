@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="SC-credenciales-post">
+    <DisplayName>SC-credenciales-post</DisplayName>
+    <Properties/>
+    <Request clearPayload="true" variable="myRequest">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <set>
+            <Verb>POST</Verb>
+            <Headers>
+                <Header name="Authorization">{basic}</Header>
+            </Headers>
+            <FormParams>
+                <FormParam name="grant_type">client_credentials</FormParam>
+            </FormParams>
+        </set>
+    </Request>
+    <Response>tokenResponse</Response>
+    <LocalTargetConnection>
+        <APIProxy>post-seguridad-global</APIProxy>
+        <ProxyEndpoint>/token</ProxyEndpoint>
+    </LocalTargetConnection>
+</ServiceCallout>

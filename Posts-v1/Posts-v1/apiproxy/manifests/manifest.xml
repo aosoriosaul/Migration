@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest name="manifest">
     <Policies>
-        <VersionInfo resourceName="AM-FixBrEncoding" version="SHA-512:4585b70976b660ff7571ed482d00afa5056bed67a0efcc7a63cc708efb2eae6f0bc9adf256bf2a7549a0c43754b5f511647553749a69e3b60e011e285caa559e"/>
-        <VersionInfo resourceName="FC-security-system" version="SHA-512:2c2366222dac7559e3f5fde595d8ddecf2431f9f3dbc346729e972107dc4a7ca32e388b567891643b1745a9e94f30ab37a32e63e17f22c3a09cc25db06546f37"/>
-        <VersionInfo resourceName="SA-contraataque" version="SHA-512:2f086508f750753b2ae0677aba34b8c53596f7b7082d0bd0251d3ab6f722e5b2620db0fcde4ac3d12bce7878bedf1c305d7b40c2cd502c65e18bc1cc8f55cdfc"/>
+        <VersionInfo resourceName="AM-CredencialesHeader" version="SHA-512:536ce4b3e92f62db0ee2a10202a2000bbf6ba4f0744ce1cdba65a83560d8c243a98dba2e6393a69d1fe23ee563af5f10e55e40acf8ba248c83d0a3ce45fcb295"/>
+        <VersionInfo resourceName="AM-cabeceros" version="SHA-512:030163b4cbfff9880bab817110d5d86a21eedcf5641d37eed1b5c943c94bd4e31d20c13a1296d531ffffe82ebfdd1b0fd94a729e9be4b7c3cc0a7b095e258baa"/>
+        <VersionInfo resourceName="AM-envia-credenciales" version="SHA-512:e17aea38b0c4147462b27c1748897616ff619b19caa261e19c41018fb27d65199943cddda41ed0ad4a93d605701049549b80793d10bf984ad2bf66cbb7c945a4"/>
+        <VersionInfo resourceName="EV-obtienetoken" version="SHA-512:f0b0329dc953bfd60f9ca04d1c1a7a05d117f4e46644e4cb50996f2c8eeee1b7c5339aead270a4eac215063411d3a29f7475321622653b2a2a3fa437c6598ec2"/>
+        <VersionInfo resourceName="KVM-obtiene-credenciales" version="SHA-512:2c0362afead4fc3f5874099a6975a735815378d1bb5745bd4d30358e64d7097da85bf7d8b8347fc13672b1cef9521093c8a127d368b0338f80c6e8fb630c08c0"/>
+        <VersionInfo resourceName="OA-SEGURIDAD" version="SHA-512:494d1a65087a88d780e2fdcf5ab83b2f344715b0c019a9681531401f0799184b724e0467804146961a4a0ea227e45c08cb3591d378befe28bf116cb79b770866"/>
+        <VersionInfo resourceName="SC-credenciales-post" version="SHA-512:9aa8efc768faec33d4a63747a0ad45ffc09c4c86bbcb29a45bbf6a4f8a15b747f582228b1bdeaa539067f4b1762fb6feb5bed862c984ef9b54b747db81f5e723"/>
+        <VersionInfo resourceName="SC-envia-credenciales" version="SHA-512:f64d5eb7d051a4a287a6edea621bc7134bb8ae809a85a380e137c8adc121cf8ad6eea903755dabe52658203685f122b796835abf8e6d777711f60208958162f3"/>
         <VersionInfo resourceName="VAK-SEGURIDAD-API-KEY" version="SHA-512:2f79b6cc806eb23652225bd09d67576f08e4fcbc8899e9a40fe89f4e7371bca1879c5f124d1184005cad95a8f730bb0f2c10e4a5c04b3b93a6a2ce24d6c5d864"/>
     </Policies>
     <ProxyEndpoints>
-        <VersionInfo resourceName="default" version="SHA-512:eee7a26c52ef6f272276de062a9009087f67a313ffa5ad14d9474a29f5be80143bcd16eaf0299e6f19eef36533c93ee699d9c786522f7f5adad8e6c20f4f8ac0"/>
+        <VersionInfo resourceName="default" version="SHA-512:e89bc9e0eb6e8a2a363824a555faa57eef3c78a3d5a264173a50c271632a469d5ca5ec160867e388a983820b3a6d077e88f2fd2a324baba23555eda643127eff"/>
     </ProxyEndpoints>
     <Resources>
         <VersionInfo resourceName="openapi://association.json" version="SHA-512:7389c06abdafff3ff6ec282f40231b407472b358f500faabe0eee525cff02fe68e77231632d2cb5d937aafdccc18f6c72b377f2db9ac6f61c80772e794049ec3"/>
