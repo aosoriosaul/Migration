@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="BA-extraer-consumerkey" version="SHA-512:cbf86fa082ffb20811da6e6001c49539a620acfdc28a2fd784f6faa418d44a5deb979d8ca28e29b224ddc8e9dcb2ea52c6c62787ef8c028916cd2f9d0744398b"/>
+        <VersionInfo resourceName="OA-Generar-Token" version="SHA-512:8c25558b3d9495f967f55250764059e761a6228c284bb76a8ba1094a6a3a64b87abd155c442823844953d472e9b5ee61762197a4c1bdd610d03c986071527a72"/>
+        <VersionInfo resourceName="VK-verificar-consumer-key" version="SHA-512:dc62a1a1d3293e9eb82180cc10f74a45a39226bc219b41bef041aa7f3f18914a8083affa7ea05c62b49a6e52594ea7908ea1f93389e33da00401ab2386781e51"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:0f4c88b2fb80041b989c82511e552e279b7a7e8e5c498af2ab385c2d1eb0ae7a5200cb43eba3f726f513f0511f653b624c52db646d24de732a1dd64e5539bf30"/>
+    </ProxyEndpoints>
+    <Resources/>
+    <SharedFlows/>
+    <TargetEndpoints/>
+</Manifest>

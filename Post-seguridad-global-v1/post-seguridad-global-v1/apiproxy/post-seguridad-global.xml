@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="3" name="post-seguridad-global">
+    <Basepaths>/post-seguridad-global</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1686954116461</CreatedAt>
+    <CreatedBy>aosoriosaul@hotmail.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>post-seguridad-global</DisplayName>
+    <LastModifiedAt>1687386828329</LastModifiedAt>
+    <LastModifiedBy>aosoriosaul@hotmail.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:0c555e5c439756be5631df392ebf8ae1cbd2ea5dcd4f783d5080c49439bd1d87df63d65240804c1ce5255fcb3072064afde0c51d5c22086c80f3c546f879d011:us-east-1</ManifestVersion>
+    <Policies>
+        <Policy>BA-extraer-consumerkey</Policy>
+        <Policy>OA-Generar-Token</Policy>
+        <Policy>VK-verificar-consumer-key</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+</APIProxy>

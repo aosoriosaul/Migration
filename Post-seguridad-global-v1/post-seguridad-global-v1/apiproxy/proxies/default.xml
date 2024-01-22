@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="token">
+            <Description>obtiene acceso</Description>
+            <Request>
+                <Step>
+                    <Name>BA-extraer-consumerkey</Name>
+                </Step>
+                <Step>
+                    <Name>OA-Generar-Token</Name>
+                </Step>
+                <Step>
+                    <Name>VK-verificar-consumer-key</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>((proxy.pathsuffix MatchesPath "/token") or (proxy.pathsuffix MatchesPath "/token/api-posts/v1/posts") or (proxy.pathsuffix MatchesPath "/token/api-posts/v1/posts/**")) and (request.verb = "POST")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/post-seguridad-global</BasePath>
+        <VirtualHost>secure</VirtualHost>
+        <VirtualHost>default</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

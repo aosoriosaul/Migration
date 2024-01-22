@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<BasicAuthentication async="false" continueOnError="false" enabled="true" name="BA-extraer-consumerkey">
+    <DisplayName>BA-extraer-consumerkey</DisplayName>
+    <Operation>Decode</Operation>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <User ref="flow.consumerkey"/>
+    <Password ref="flow.consumersecret"/>
+    <Source>request.header.Authorization</Source>
+</BasicAuthentication>
