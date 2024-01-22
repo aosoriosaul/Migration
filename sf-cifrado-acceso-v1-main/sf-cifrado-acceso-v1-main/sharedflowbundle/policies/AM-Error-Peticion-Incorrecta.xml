@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="true" enabled="true" name="AM-Error-Peticion-Incorrecta">
+    <DisplayName>AM-Error-Peticion-Incorrecta</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>flow.error.code</Name>
+        <Value>BE.AS-5700</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.message</Name>
+        <Value>Parámetros no validos, por favor valide su información.</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.folio</Name>
+        <Ref>messageid</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.info</Name>
+        <Value>https://baz-developer.bancoazteca.com.mx/info#BE.AS-5700</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.detalle</Name>
+        <Value>El cabecero identificador de acceso del api de seguridad proporcionado no es correcto.</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.http.code</Name>
+        <Value>400</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.http.reason</Name>
+        <Value>Bad Request</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

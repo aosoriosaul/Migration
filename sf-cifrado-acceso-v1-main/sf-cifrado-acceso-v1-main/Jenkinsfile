@@ -1,0 +1,16 @@
+node {
+    properties([
+        parameters([
+            text(name: 'projectId', defaultValue: '144', description: 'Identificador de proyecto en gitlab'),
+            choice(choices: ['dev','qa', 'hybrid-aws-dev','hybrid-aws-test'], name: 'ambiente'),
+            booleanParam(defaultValue: true, description: 'LimpiarWorkspace', name: 'LimpiarWorkspace')
+        ])
+    ])
+
+    deleteDir()
+    
+    sh 'git clone https://gitlab-gcp.apibaz.com//cicd/jenkins/pipeline/jenkinsfile-sf.git'
+    def rootDirectory = pwd()
+    def jenkinsfile =  load "${rootDirectory}/jenkinsfile-sf/jenkinsfilemaster.groovy"
+    jenkinsfile.mainFlow()
+}    

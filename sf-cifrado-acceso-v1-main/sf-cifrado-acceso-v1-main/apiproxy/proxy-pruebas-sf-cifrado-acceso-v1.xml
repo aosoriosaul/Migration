@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="proxy-pruebas-sf-cifrado-acceso-v1">
+    <Basepaths>/sf-cifrado-acceso/v1</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1543620999925</CreatedAt>
+    <CreatedBy>jnietoc@elektra.com.mx</CreatedBy>
+    <Description>proxy-pruebas-sf-cifrado-acceso-v1</Description>
+    <DisplayName>proxy-pruebas-sf-cifrado-acceso-v1</DisplayName>
+    <LastModifiedAt>1543620999925</LastModifiedAt>
+    <LastModifiedBy>jnietoc@elektra.com.mx</LastModifiedBy>   
+    <Policies>
+        <Policy>FC-Cifrado-Acceso-V1</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources/>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

@@ -1,0 +1,49 @@
+{
+	"version": "1.0",
+	"orgConfig": {
+		"apiProducts": [
+			{
+				"name": "Producto-pruebas-sf-cifrado-acceso-v1",
+				"displayName": "Producto-pruebas-sf-cifrado-acceso-v1",
+				"description": "Producto-pruebas-sf-cifrado-acceso-v1",
+				"apiResources": [],
+				"approvalType": "auto",
+				"attributes": [],
+				"environments": [
+					"desarrollo"
+				],
+				"proxies": [
+					"proxy-pruebas-sf-cifrado-acceso-v1"
+				],
+				"scopes": []
+			}
+		],
+		"developers": [
+			{
+				"attributes": [],
+				"email": "pruebas-sf-cifrado-acceso-v1@gmail.com",
+				"firstName": "pruebas-sf-cifrado-acceso-v1",
+				"lastName": "pruebas-sf-cifrado-acceso-v1",
+				"userName": "pruebas-sf-cifrado-acceso-v1"
+			}
+		],
+		"developerApps": {
+			"pruebas-sf-cifrado-acceso-v1@gmail.com": [
+				{
+					"name": "pruebas-sf-cifrado-acceso-v1",
+					"apiProducts": [
+						"BAZ GDA OAuth2 Client Credentials INT",
+						"Producto-pruebas-sf-cifrado-acceso-v1"
+					],
+					"callbackUrl": "",
+					"scopes": []
+				}
+			]
+		}
+	},
+	"envConfig": {
+		"desarrollo": {
+			"kvms": []
+		}
+	}
+}

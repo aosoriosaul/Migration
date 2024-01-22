@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="true" enabled="true" name="EV-Identificador-Acceso">
+    <DisplayName>EV-Identificador-Acceso</DisplayName>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix>flow.request</VariablePrefix>
+    <Header name="x-id-acceso">
+           <Pattern ignoreCase="false">{idAcceso}</Pattern>
+    </Header>
+    <Header name="x-idAcceso">
+        <Pattern ignoreCase="false">{idAcceso}</Pattern>
+    </Header>   
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

@@ -1,0 +1,19 @@
+node {
+    properties([
+        parameters([
+            text(name:'projectId', defaultValue:'144', description:'Identificador de proyecto en gitlab'),
+            booleanParam(defaultValue: false, description: 'LimpiarWorkspace', name: 'LimpiarWorkspace'),
+            booleanParam(name: 'Block', defaultValue: true, description: 'Bloquea despliegue a produccion')
+        ])
+    ])
+
+    deleteDir()
+
+    withCredentials([usernamePassword(credentialsId: 'gitlab_rke_devops_cred', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+        sh 'git clone http://${USER}:${PASS}@gitlab-webservice-default.gitlab.svc.cluster.local:8181/gremio-de-ti-operacion-y-monitoreo/team-cloud-api-servicios/apigee/librerias/configuracion-sharedflow.git'
+    }
+
+    def rootDirectory = pwd()
+    def jenkinsfile =  load "${rootDirectory}/configuracion-sharedflow/jenkinsfilemaster.groovy"
+    jenkinsfile.mainFlow()
+}

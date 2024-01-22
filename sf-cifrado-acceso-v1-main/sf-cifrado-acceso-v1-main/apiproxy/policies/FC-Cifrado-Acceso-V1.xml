@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" continueOnError="false" enabled="true" name="FC-Cifrado-Acceso-V1">
+    <DisplayName>FC-Cifrado-Acceso-V1</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <SharedFlowBundle>sf-cifrado-acceso-v1</SharedFlowBundle>
+</FlowCallout>

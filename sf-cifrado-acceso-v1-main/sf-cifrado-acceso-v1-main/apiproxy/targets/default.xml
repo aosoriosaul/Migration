@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="default">
+    <Description/>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <Flows/>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPTargetConnection>
+        <Properties/>
+        <!-- Descomentar cuando se tenga el bankend disponible -->
+        <!--
+        <LoadBalancer>
+            <Server name="target-server-name"/>
+        </LoadBalancer>
+        <Path>BASEPATH</Path>
+        -->
+        <!-- Remover cuando se tenga el backend disponible -->
+        <URL>http://cosafinity-prod.apigee.net/v1/employees</URL>
+    </HTTPTargetConnection>
+</TargetEndpoint>

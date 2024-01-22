@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LookupCache async="false" continueOnError="false" enabled="true" name="LC-Extraer-Llaves">
+    <DisplayName>LC-Extraer-Llaves</DisplayName>
+    <Properties/>
+    <CacheKey>
+        <KeyFragment ref="flow.request.tipoLlave" />
+        <KeyFragment ref="flow.request.idAcceso"/>
+    </CacheKey>
+    <CacheResource>llaves-id-acceso-cache</CacheResource>
+    <Scope>Global</Scope>
+    <AssignTo>flow.response.llaves</AssignTo>
+</LookupCache>
