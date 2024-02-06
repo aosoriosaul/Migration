@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessageLogging continueOnError="false" enabled="true" name="ML-Logging-Archivo-Error">
+    <DisplayName>ML-Logging-Archivo-Error</DisplayName>
+    <CloudLogging>
+        <LogName>projects/{organization.name}/logs/{apiproxy.name}</LogName>
+        <Message contentType="text/plain">{flow.log.message.content}</Message>
+        <Labels/>
+        <ResourceType>gce_instance</ResourceType>
+    </CloudLogging>
+    <logLevel>ERROR</logLevel>
+</MessageLogging>

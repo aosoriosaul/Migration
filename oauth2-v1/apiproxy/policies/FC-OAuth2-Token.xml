@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout continueOnError="false" enabled="true" name="FC-OAuth2-Token">
+  <DisplayName>FC-OAuth2-Token</DisplayName>
+  <FaultRules/>
+  <Properties/>
+  <SharedFlowBundle>sf-oauth2-token-v1</SharedFlowBundle>
+</FlowCallout>

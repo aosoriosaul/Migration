@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Error-Autentificacion">
+    <DisplayName>AM-Error-Autentificacion</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>flow.error.code</Name>
+        <Value>API.AS-5300</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.message</Name>
+        <Value>No estas autorizado, favor de validar</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.folio</Name>
+        <Ref>messageid</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.info</Name>
+        <Value>https://baz-developer.bancoazteca.com.mx/errors#API.AS-5300</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.http.code</Name>
+        <Value>401</Value>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>flow.error.http.reason</Name>
+        <Value>Unauthorized</Value>
+    </AssignVariable>
+    <!-- Set this flow variable to indicate the response has been set -->
+    <AssignVariable>
+        <Name>flow.error.ready</Name>
+        <Value>true</Value>
+    </AssignVariable>
+</AssignMessage>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description>OAuth2</Description>
+    <FaultRules>
+        <!-- could put additional fault rules here if needed for local proxy -->
+        <FaultRule name="ControlErrorHeaderAutorizacion">
+            <Step>
+                <Name>AM-Error-Header-Autorization-Invalido</Name>
+            </Step>
+            <Condition>(fault.name = "InvalidBasicAuthenticationSource")</Condition>
+        </FaultRule>
+        <FaultRule name="ControlErrorAPIKeyInvalido">
+            <Step>
+                <Name>AM-Error-Autentificacion</Name>
+            </Step>
+            <Condition>(fault.name = "InvalidApiKey")</Condition>
+        </FaultRule>
+        <FaultRule name="ControlErrorAPIKeyRecursoInvalido">
+            <Step>
+                <Name>AM-Error-Autentificacion</Name>
+            </Step>
+            <Condition>(fault.name = "InvalidApiKeyForGivenResource")</Condition>
+        </FaultRule>
+    </FaultRules>
+    <DefaultFaultRule name="fault-rule">
+        <!-- Begin Mediacion de Errores -->
+        <Step>
+            <Name>FC-Control-Errores-Proxies</Name>
+        </Step>
+        <!-- End Mediacion de Errores -->
+        <!-- Begin Logging -->
+        <Step>
+            <Name>AM-ProxyEndPoint</Name>
+        </Step>
+        <Step>
+            <Name>JS-ContextFlow</Name>
+        </Step>
+        <Step>
+            <Name>FC-Logging</Name>
+        </Step>
+        <!-- End Logging -->
+        <!-- Begin Políticas -->
+        <!-- End Políticas -->
+        <AlwaysEnforce>true</AlwaysEnforce>
+    </DefaultFaultRule>
+    <PreFlow name="PreFlow">
+        <Request>
+            <!-- Begin Configuracion Log Proxie -->
+            <Step>
+                <Name>FC-Config-Log-Proxies</Name>
+            </Step>
+            <!-- End Configuracion Log Proxie -->
+            <!-- Begin Logging -->
+            <Step>
+                <Name>JS-ContextFlow</Name>
+            </Step>
+            <Step>
+                <Name>FC-Logging</Name>
+            </Step>
+            <!-- End Logging -->
+            <!-- Begin Políticas -->
+            <!-- End Políticas -->
+        </Request>
+        <Response>
+            <!-- Begin Políticas -->
+            <!-- End Políticas -->
+            <!-- Begin Logging -->
+            <Step>
+                <Name>JS-ContextFlow</Name>
+            </Step>
+            <Step>
+                <Name>FC-Logging</Name>
+            </Step>
+            <!-- End Logging -->
+        </Response>
+    </PreFlow>
+    <Flows>
+        <Flow name="GET /ping">
+            <Condition>(proxy.pathsuffix MatchesPath "/ping") and (request.verb = "GET")</Condition>
+            <Description>Verifica la conectividad del API, el estado de despliegue y la latencia</Description>
+            <Request>
+                <Step>
+                    <Name>JS-Calculo-Latencias</Name>
+                </Step>
+                <Step>
+                    <Name>AM-Respuesta-Health-Check</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+        <Flow name="POST /token">
+            <Condition>(proxy.pathsuffix MatchesPath "/token") and (request.verb = "POST")</Condition>
+            <Description>Generación de token de acceso tipo de concesión client credentials</Description>
+            <Request>
+                <Step>
+                    <Name>FC-OAuth2-Token</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+        <Flow name="GET /tokeninfo">
+            <Condition>(proxy.pathsuffix MatchesPath "/tokeninfo") and (request.verb = "GET")</Condition>
+            <Description>Obtiene información del token de acceso</Description>
+            <Request>
+                <Step>
+                    <Name>FC-OAuth2-TokenInfo</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+        <Flow name="OptionsPreFlight">
+            <Request>
+                <Step>
+                    <Name>CORS-Origenes</Name>
+                </Step>
+            </Request>
+            <Response>
+            </Response>
+            <Condition>request.verb == "OPTIONS" AND request.header.origin != null AND request.header.Access-Control-Request-Method != null</Condition>
+        </Flow>
+        <Flow name="Not-Found">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>RF-Respuesta-No-Encontrado</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request>
+            <!-- Begin Conext Flow -->
+            <Step>
+                <Name>JS-ContextFlow</Name>
+            </Step>
+            <!-- End Conext Flow -->
+            <!-- Begin Políticas -->
+            <!-- End Políticas -->
+        </Request>
+        <Response>
+            <!-- Begin Políticas -->
+            <Step>
+                <Name>AM-Establecer-Origen-Dominio</Name>
+            </Step>
+            <!-- End Políticas -->
+            <!-- Begin Logging -->
+            <Step>
+                <Name>JS-ContextFlow</Name>
+            </Step>
+            <Step>
+                <Name>FC-Logging</Name>
+            </Step>
+            <!-- End Logging -->
+        </Response>
+    </PostFlow>
+    <PostClientFlow>
+        <Response>
+            <Step>
+                <Condition>(logging.file.enabled equals true) and (message.status.code LesserThan 400)</Condition>
+                <Name>ML-Logging-Archivo-Info</Name>
+            </Step>
+            <Step>
+                <Condition>(logging.file.enabled equals true) and (message.status.code GreaterThanOrEquals 400)</Condition>
+                <Name>ML-Logging-Archivo-Error</Name>
+            </Step>
+        </Response>
+    </PostClientFlow>
+    <HTTPProxyConnection>
+        <BasePath>/oauth2/v1</BasePath>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>
