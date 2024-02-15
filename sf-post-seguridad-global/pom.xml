@@ -18,9 +18,9 @@ limitations under the License.
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>apigee-devrel</groupId>
-	<artifactId>airports-cicd</artifactId>
+	<artifactId>sf-post-seguridad-global-v1</artifactId>
 	<version>v1</version>
-	<name>airports-cicd${deployment.suffix}</name>
+	<name>sf-post-seguridad-global-v1${deployment.suffix}</name>
 	<packaging>pom</packaging>
 	<pluginRepositories>
 		<pluginRepository>
